@@ -1,0 +1,14 @@
+mcp==1.6.0
+numpy==1.26.4
+opencv-python-headless==4.9.0.80
+openai==1.70.0
+openai-agents==0.0.7
+pdf2image==1.17.0
+pytesseract==0.3.10
+python-dotenv==1.1.0
+requests==2.32.3
+tqdm==4.67.1
+typing-inspection==0.4.0
+typing_extensions==4.13.1
+uvicorn==0.34.0
+sublist3r

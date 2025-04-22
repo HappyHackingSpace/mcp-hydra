@@ -1,0 +1,17 @@
+{
+    "servers": {
+        "HydraMCP": {
+            "command": "docker",
+            "args": [
+                "run",
+                "--rm",
+                "-i",
+                "--net=host",
+                "--privileged",
+                "--name",
+                "hydramcp",
+                "hydramcp"
+            ]
+        }
+    }
+}
