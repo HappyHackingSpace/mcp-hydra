@@ -68,9 +68,23 @@ touch mcp.json
 ```
 
 ## Demos
-- [Holehe]()
-- [Nmap]()
-- [Sqlmap]()
+### Holehe Demo
+<video width="320" height="240" controls>
+  <source src="https://github.com/HappyHackingSpace/mcp-hydra/raw/refs/heads/main/demos/holehe.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
+### Sqlmap Demo
+<video width="320" height="240" controls>
+  <source src="https://github.com/HappyHackingSpace/mcp-hydra/raw/refs/heads/main/demos/sqlmap.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
+
+<video width="320" height="240" controls>
+  <source src="https://github.com/HappyHackingSpace/mcp-hydra/raw/refs/heads/main/demos/nmap.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
 
 
 
