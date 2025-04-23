@@ -18,6 +18,9 @@
 ```
 A lightweight, extensible cybersecurity toolkit that connects AI assistants to security tools through the Model Context Protocol (MCP), enabling AI-assisted security research, scanning, and analysis.
 
+## Demo - Sqlmap
+https://github.com/user-attachments/assets/8f7f4185-ca32-4204-a98d-7596e0dedc41
+
 ## Installation
 
 Build te Docker image
@@ -66,10 +69,33 @@ touch mcp.json
 }
 ```
 
-## Demos
-- [/demos/holehe.mp4](https://github.com/HappyHackingSpace/mcp-hydra/blob/main/demos/holehe.mp4)
-- [/demos/sqlmap.mp4](https://github.com/HappyHackingSpace/mcp-hydra/blob/main/demos/sqlmap.mp4)
-- [/demos/nmap.mp4](https://github.com/HappyHackingSpace/mcp-hydra/blob/main/demos/nmap.mp4)
+## You can use the following prompts to test the tools:
+```
+Sublist3r
+> Use Sublist3rScanner to find all subdomains for example.com and save results to the "recon" folder.
+--
+DNSRecon
+> Run a DNS reconnaissance scan on example.com using DNSReconScanner with standard scan type.
+--
+Holehe
+> Use HoleheScanner to check if the email address user@example.com is registered on various websites.
+--
+Nmap
+> Scan 192.168.1.1 with NmapScanner to check for open ports in the range 1-1000.
+--
+Ocr2Text
+> Use OcrScanner to extract text from the screenshot at /path/to/image.png.
+--
+Sqlmap 
+> Run SqlmapScanner on http://testphp.vulnweb.com/listproducts.php?cat=1 to check for SQL injection vulnerabilities.
+--
+WPScan
+> Use WPScanScanner to scan the WordPress site at https://example.com for vulnerabilities.
+--
+Zmap
+> Scan the subnet 192.168.1.0/24 for systems with port 80 open using ZmapScanner with 1M bandwidth.
+```
+
 
 
 ## Changelog
