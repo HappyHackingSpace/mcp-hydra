@@ -4,7 +4,7 @@ opencv-python-headless==4.9.0.80
 openai==1.70.0
 openai-agents==0.0.7
 pdf2image==1.17.0
-pytesseract==0.3.10
+pytesseract
 python-dotenv==1.1.0
 requests==2.32.3
 tqdm==4.67.1

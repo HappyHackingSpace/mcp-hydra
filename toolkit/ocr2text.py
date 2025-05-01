@@ -2,7 +2,7 @@
 # - Tool: OCR Scanner
 # - Description: Optical Character Recognition tool
 # - Usage: Extracts text from images and PDF files
-# - Parameters: file_path (required)
+# - Parameters: file_path (required) - can be a local file or URL prefixed with @
 
 import cv2
 import pytesseract
@@ -10,12 +10,46 @@ from pdf2image import convert_from_path
 import os
 import numpy as np
 from typing import Dict, Any
+import requests
+import tempfile
+from urllib.parse import urlparse
 
 # Configure Tesseract path - use system path for Kali Linux
 if os.path.exists('/usr/bin/tesseract'):
     pytesseract.pytesseract.tesseract_cmd = r'/usr/bin/tesseract'
 elif os.path.exists('/usr/local/bin/tesseract'):
     pytesseract.pytesseract.tesseract_cmd = r'/usr/local/bin/tesseract'
+elif os.path.exists('C:\\Program Files\\Tesseract-OCR\\tesseract.exe'):
+    pytesseract.pytesseract.tesseract_cmd = r'C:\\Program Files\\Tesseract-OCR\\tesseract.exe'
+
+def download_image(url):
+    """Download image from a URL and save to a temporary file"""
+    try:
+        response = requests.get(url, stream=True)
+        response.raise_for_status()
+        
+        # Get the file extension from the URL
+        parsed_url = urlparse(url)
+        filename = os.path.basename(parsed_url.path)
+        _, ext = os.path.splitext(filename)
+        
+        if not ext:
+            # Default to .png if no extension found
+            ext = '.png'
+            
+        # Create a temporary file with the correct extension
+        temp_file = tempfile.NamedTemporaryFile(suffix=ext, delete=False)
+        temp_filename = temp_file.name
+        
+        # Write the image data to the temporary file
+        with open(temp_filename, 'wb') as f:
+            for chunk in response.iter_content(chunk_size=8192):
+                f.write(chunk)
+                
+        return temp_filename
+    except Exception as e:
+        print(f"Error downloading image: {str(e)}")
+        return None
 
 def process_image(img):
     """Process image for better OCR results"""
@@ -57,16 +91,41 @@ def extract_text_from_image(image_path):
         return f"Error processing image: {str(e)}"
 
 def ExecOcr2Text(file_path: str) -> Dict[str, Any]:
-    """Execute OCR on a file (image or PDF)"""
-    if not os.path.exists(file_path):
-        return {
-            "success": False,
-            "error": f"File not found: {file_path}",
-            "text": ""
-        }
+    """Execute OCR on a file (image or PDF) or URL"""
+    temp_file = None
     
-    file_ext = os.path.splitext(file_path)[1].lower()
     try:
+        # Check if the file_path is a URL (starts with @ or http/https)
+        if file_path.startswith('@'):
+            url = file_path[1:]  # Remove the @ symbol
+            print(f"Downloading image from URL: {url}")
+            temp_file = download_image(url)
+        elif file_path.startswith(('http://', 'https://')):
+            url = file_path
+            print(f"Downloading image from URL: {url}")
+            temp_file = download_image(url)
+            
+        if temp_file is None and (file_path.startswith('@') or file_path.startswith(('http://', 'https://'))):
+            return {
+                "success": False,
+                "error": f"Failed to download image from URL: {url}",
+                "text": ""
+            }
+            
+        # Use the temp file if a URL was provided
+        if temp_file:
+            file_path = temp_file
+        
+        # Check if the file exists
+        if not os.path.exists(file_path):
+            return {
+                "success": False,
+                "error": f"File not found: {file_path}",
+                "text": ""
+            }
+        
+        file_ext = os.path.splitext(file_path)[1].lower()
+        
         if file_ext == '.pdf':
             text = extract_text_from_pdf(file_path)
         elif file_ext in ['.jpg', '.jpeg', '.png', '.bmp', '.tiff', '.tif']:
@@ -77,7 +136,7 @@ def ExecOcr2Text(file_path: str) -> Dict[str, Any]:
                 "error": f"Unsupported file format: {file_ext}",
                 "text": ""
             }
-            
+                
         return {
             "success": True,
             "error": "",
@@ -89,3 +148,10 @@ def ExecOcr2Text(file_path: str) -> Dict[str, Any]:
             "error": str(e),
             "text": ""
         }
+    finally:
+        # Clean up temporary file if it was created
+        if temp_file and os.path.exists(temp_file):
+            try:
+                os.unlink(temp_file)
+            except:
+                pass

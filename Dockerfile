@@ -41,6 +41,7 @@ RUN apt update && apt install -y \
     dnsrecon \
     sqlmap \
     ca-certificates \
+    tesseract-ocr \
     build-essential \
     ruby-full \
     python3 \

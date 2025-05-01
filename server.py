@@ -64,7 +64,13 @@ def SqlmapScanner(
 def OcrScanner(
     file_path: str,
 ) -> Dict[str, Any]:
-    """Wrapper for running OCR (Optical Character Recognition) on images and PDFs."""
+    """Wrapper for running OCR (Optical Character Recognition) on images and PDFs.
+    
+    The file_path can be:
+    - A local file path
+    - A direct URL (http/https)
+    - A URL prefixed with @ symbol
+    """
     return ExecOcr2Text(file_path)
 
 @mcp.tool()

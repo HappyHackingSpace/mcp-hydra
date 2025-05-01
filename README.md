@@ -37,7 +37,7 @@ Edit your `claude_desktop_config.json`
 ```json
 {
   "mcpServers": {
-    "HydraMCP": {
+    "hydramcp": {
       "command": "docker",
       "args": ["run", "--rm", "-i","--name","hydramcp", "hydramcp"]
     }
@@ -52,7 +52,7 @@ touch mcp.json
 ```json
 {
     "servers": {
-        "HydraMCP": {
+        "hydramcp": {
             "command": "docker",
             "args": [
                 "run",
