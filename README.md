@@ -19,7 +19,17 @@
 A lightweight, extensible cybersecurity toolkit that connects AI assistants to security tools through the Model Context Protocol (MCP), enabling AI-assisted security research, scanning, and analysis.
 
 ## Demo - Sqlmap
-https://github.com/user-attachments/assets/8f7f4185-ca32-4204-a98d-7596e0dedc41
+### Nmap
+![nmap](/demos/nmap.gif)
+
+### Sqlmap
+![sqlmap](/demos/sqlmap.gif)
+
+### Holehe
+![holehe](/demos/holehe.gif)
+
+### Ocr2Text
+![ocr2text](/demos/ocr2text.png)
 
 ## Installation
 
