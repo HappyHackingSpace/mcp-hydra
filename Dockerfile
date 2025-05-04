@@ -67,6 +67,9 @@ RUN git clone https://github.com/megadose/holehe.git && \
     cd holehe && \
     python3 setup.py install
 
+# Sherlock Project
+RUN pip install sherlock-project
+
 
 # Copy and install Python dependencies
 COPY requirements.txt .

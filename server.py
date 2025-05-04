@@ -10,6 +10,7 @@ from toolkit.sqlmap import ExecSqlmap
 from toolkit.ocr2text import ExecOcr2Text
 from toolkit.sublist3r import ExecSublist3r
 from toolkit.dnsrecon import ExecDNSRecon
+from toolkit.sherlock import ExecSherlock
 
 # Create server
 mcp = FastMCP(name="HydraΜCP",
@@ -99,6 +100,14 @@ def DNSReconScanner(
         kwargs["dictionary"] = dictionary
     
     return ExecDNSRecon(domain, scan_type, **kwargs)
+
+@mcp.tool()
+def SherlockScanner(
+    usernames: List[str],
+) -> Dict[str, Any]:
+    """Wrapper for running Sherlock username enumeration."""
+    return ExecSherlock(usernames)
+
 
 if __name__ == "__main__":
     mcp.run(transport="stdio")

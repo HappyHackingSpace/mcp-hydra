@@ -31,6 +31,9 @@ A lightweight, extensible cybersecurity toolkit that connects AI assistants to s
 ### Ocr2Text
 ![ocr2text](/demos/ocr2text.png)
 
+### Sherlock
+![Sherlock](/demos/sherlock.gif)
+
 ## Installation
 
 Build te Docker image
