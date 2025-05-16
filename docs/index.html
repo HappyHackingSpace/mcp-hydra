@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+   <title>MCPHydra</title>
+   <style>
+      body {
+         background-color: #000000;
+         margin: 0;
+
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         min-height: 100vh;
+      }
+
+      #flag-container {
+         position: relative;
+         overflow: hidden;
+         max-width: 100%;
+         height: 100vh;
+      }
+
+
+      #tiresult {
+         font-size: 16px;
+         background-color: #000000;
+         font-weight: bold;
+         padding: 3px 5px;
+         margin: 0;
+         display: inline-block;
+         white-space: pre;
+         width: 100%;
+         overflow-x: auto;
+      }
+
+      #mcphydra {
+         background-color: #000000;
+         font-weight: bold;
+         padding: 3px 5px;
+         margin: 0;
+         display: inline-block;
+         font-size: 18px;
+         white-space: pre;
+         width: 100%;
+         overflow-x: auto;
+         color: #07df07;
+      }
+
+      /* Responsive font sizes */
+      @media screen and (max-width: 1024px) {
+
+         #tiresult,
+         #mcphydra {
+            font-size: 20px;
+         }
+
+         #mcphydra {
+            font-size: 10px;
+         }
+      }
+
+      @media screen and (max-width: 768px) {
+
+         #tiresult,
+         #mcphydra {
+            font-size: 20px;
+         }
+
+         #mcphydra {
+            font-size: 10px;
+         }
+      }
+
+      @media screen and (max-width: 480px) {
+
+         #tiresult,
+         #mcphydra {
+            font-size: 14px;
+         }
+
+         #mcphydra {
+            font-size: 10px;
+         }
+      }
+
+      /* Animation for each character */
+      #tiresult b {
+         display: inline-block;
+         animation: wave 1s infinite ease-in-out;
+         transform-origin: center bottom;
+         position: relative;
+      }
+
+      /* Base animation keyframes - will be overridden by JavaScript for responsive sizing */
+      @keyframes wave {
+         0% {
+            transform: translateY(0) rotate(0deg);
+         }
+
+         20% {
+            transform: translateY(-1px) rotate(1.5deg) translateX(0.8px);
+         }
+
+         40% {
+            transform: translateY(-0.5px) rotate(0.5deg) translateX(0.4px);
+         }
+
+         60% {
+            transform: translateY(0) rotate(0deg);
+         }
+
+         80% {
+            transform: translateY(0.8px) rotate(-1.5deg) translateX(-0.8px);
+         }
+
+         100% {
+            transform: translateY(0) rotate(0deg);
+         }
+      }
+   </style>
+</head>
+
+<body>
+   <div id="flag-container">
+      <pre id="mcphydra">
+                         __              __          
+   ____ ___  _________  / /_  __  ______/ /________ _
+  / __ `__ \/ ___/ __ \/ __ \/ / / / __  / ___/ __ `/
+ / / / / / / /__/ /_/ / / / / /_/ / /_/ / /  / /_/ / 
+/_/ /_/ /_/\___/ .___/_/ /_/\__, /\__,_/_/   \__,_/  
+              /_/          /____/       v0.1.0             
+</pre>
+      <pre id="tiresult">
+<b style="color:#07df07">⣿</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⠿</b><b style="color:#07df07">⠿</b><b style="color:#07df07">⠿</b><b style="color:#07df07">⠿</b><b style="color:#07df07">⠿</b><b style="color:#07df07">⢿</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⣿</b>
+<b style="color:#07df07">⣿</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⠿</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⠟</b><b style="color:#07df07">⠙</b><b style="color:#07df07">⠻</b><b style="color:#07df07">⠿</b><b style="color:#07df07">⠋</b><b style="color:#07df07">⠙</b><b style="color:#07df07">⠻</b><b style="color:#07df07">⠷</b><b style="color:#07df07">⠄</b><b style="color:#07df07">⠀</b><b style="color:#07df07">⠀</b><b style="color:#07df07">⠀</b><b style="color:#07df07">⠀</b><b style="color:#07df07">⠀</b><b style="color:#07df07">⠀</b><b style="color:#07df07">⢸</b><b style="color:#07df07">⣿</b>
+<b style="color:#07df07">⣿</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⠿</b><b style="color:#07df07">⢿</b><b style="color:#07df07">⠿</b><b style="color:#07df07">⠋</b><b style="color:#07df07">⠀</b><b style="color:#07df07">⠀</b><b style="color:#07df07">⠀</b><b style="color:#07df07">⠀</b><b style="color:#07df07">⠀</b><b style="color:#07df07">⠀</b><b style="color:#07df07">⠀</b><b style="color:#07df07">⠀</b><b style="color:#07df07">⠀</b><b style="color:#07df07">⠀</b><b style="color:#07df07">⠀</b><b style="color:#07df07">⠀</b><b style="color:#07df07">⠀</b><b style="color:#07df07">⠀</b><b style="color:#07df07">⠀</b><b style="color:#07df07">⠀</b><b style="color:#07df07">⢠</b><b style="color:#07df07">⣾</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⣿</b>
+<b style="color:#07df07">⣿</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⡿</b><b style="color:#07df07">⠀</b><b style="color:#07df07">⠀</b><b style="color:#07df07">⠀</b><b style="color:#07df07">⠀</b><b style="color:#07df07">⠀</b><b style="color:#07df07">⠀</b><b style="color:#07df07">⢀</b><b style="color:#07df07">⣀</b><b style="color:#07df07">⣤</b><b style="color:#07df07">⣴</b><b style="color:#07df07">⣶</b><b style="color:#07df07">⣾</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⣇</b><b style="color:#07df07">⡀</b><b style="color:#07df07">⠀</b><b style="color:#07df07">⠈</b><b style="color:#07df07">⠻</b><b style="color:#07df07">⠿</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⣿</b>
+<b style="color:#07df07">⣿</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⠉</b><b style="color:#07df07">⠉</b><b style="color:#07df07">⠀</b><b style="color:#07df07">⠀</b><b style="color:#07df07">⠀</b><b style="color:#07df07">⠀</b><b style="color:#07df07">⠀</b><b style="color:#07df07">⣠</b><b style="color:#07df07">⣶</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⢿</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⣷</b><b style="color:#07df07">⣶</b><b style="color:#07df07">⣶</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⣿</b>
+<b style="color:#07df07">⣿</b><b style="color:#07df07">⠿</b><b style="color:#07df07">⠟</b><b style="color:#07df07">⠀</b><b style="color:#07df07">⠀</b><b style="color:#07df07">⠀</b><b style="color:#07df07">⢀</b><b style="color:#07df07">⣠</b><b style="color:#07df07">⣾</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⡿</b><b style="color:#07df07">⠻</b><b style="color:#07df07">⠿</b><b style="color:#07df07">⠟</b><b style="color:#07df07">⠙</b><b style="color:#07df07">⠿</b><b style="color:#07df07">⠟</b><b style="color:#07df07">⠻</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⡆</b><b style="color:#07df07">⠈</b><b style="color:#07df07">⠻</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⣿</b>
+<b style="color:#07df07">⣿</b><b style="color:#07df07">⠀</b><b style="color:#07df07">⠀</b><b style="color:#07df07">⠀</b><b style="color:#07df07">⠀</b><b style="color:#07df07">⢀</b><b style="color:#07df07">⣾</b><b style="color:#07df07">⠏</b><b style="color:#07df07">⠈</b><b style="color:#07df07">⠉</b><b style="color:#07df07">⠀</b><b style="color:#07df07">⠀</b><b style="color:#07df07">⠀</b><b style="color:#07df07">⠀</b><b style="color:#07df07">⠀</b><b style="color:#07df07">⠀</b><b style="color:#07df07">⠀</b><b style="color:#07df07">⠀</b><b style="color:#07df07">⠀</b><b style="color:#07df07">⠁</b><b style="color:#07df07">⠀</b><b style="color:#07df07">⠀</b><b style="color:#07df07">⠈</b><b style="color:#07df07">⠻</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⣿</b>
+<b style="color:#07df07">⣿</b><b style="color:#07df07">⠀</b><b style="color:#07df07">⠀</b><b style="color:#07df07">⠀</b><b style="color:#07df07">⠀</b><b style="color:#07df07">⠈</b><b style="color:#07df07">⠁</b><b style="color:#07df07">⠀</b><b style="color:#07df07">⠀</b><b style="color:#07df07">⠀</b><b style="color:#07df07">⠀</b><b style="color:#07df07">⣠</b><b style="color:#07df07">⣤</b><b style="color:#07df07">⣶</b><b style="color:#07df07">⣶</b><b style="color:#07df07">⣶</b><b style="color:#07df07">⣶</b><b style="color:#07df07">⣦</b><b style="color:#07df07">⡄</b><b style="color:#07df07">⠀</b><b style="color:#07df07">⠀</b><b style="color:#07df07">⠀</b><b style="color:#07df07">⠀</b><b style="color:#07df07">⠈</b><b style="color:#07df07">⠻</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⣿</b>
+<b style="color:#07df07">⣿</b><b style="color:#07df07">⠀</b><b style="color:#07df07">⠀</b><b style="color:#07df07">⠀</b><b style="color:#07df07">⠀</b><b style="color:#07df07">⠀</b><b style="color:#07df07">⠀</b><b style="color:#07df07">⠀</b><b style="color:#07df07">⣠</b><b style="color:#07df07">⣾</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⣦</b><b style="color:#07df07">⡀</b><b style="color:#07df07">⠀</b><b style="color:#07df07">⣾</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⣆</b><b style="color:#07df07">⣤</b><b style="color:#07df07">⣾</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⣿</b>
+<b style="color:#07df07">⣿</b><b style="color:#07df07">⠀</b><b style="color:#07df07">mcphydra</b><b style="color:#07df07">⠀</b><b style="color:#07df07">⠀</b><b style="color:#07df07">⠘</b><b style="color:#07df07">⠛</b><b style="color:#07df07">⠛</b><b style="color:#07df07">⠻</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⣦</b><b style="color:#07df07">⠈</b><b style="color:#07df07">⣻</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⣿</b>
+<b style="color:#07df07">⣿</b><b style="color:#07df07">⠀</b><b style="color:#07df07">⠀</b><b style="color:#07df07">⠀</b><b style="color:#07df07">⠀</b><b style="color:#07df07">⠀</b><b style="color:#07df07">⠀</b><b style="color:#07df07">⠀</b><b style="color:#07df07">⠀</b><b style="color:#07df07">⠀</b><b style="color:#07df07">⠀</b><b style="color:#07df07">⠈</b><b style="color:#07df07">⠉</b><b style="color:#07df07">⢻</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⡿</b><b style="color:#07df07">⠿</b><b style="color:#07df07">⠿</b><b style="color:#07df07">⠿</b><b style="color:#07df07">⢿</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⣿</b>
+<b style="color:#07df07">⣿</b><b style="color:#07df07">⠀</b><b style="color:#07df07">⠀</b><b style="color:#07df07">⠀</b><b style="color:#07df07">⠀</b><b style="color:#07df07">⢀</b><b style="color:#07df07">⣠</b><b style="color:#07df07">⣤</b><b style="color:#07df07">⣤</b><b style="color:#07df07">⣤</b><b style="color:#07df07">⣄</b><b style="color:#07df07">⣀</b><b style="color:#07df07">⠀</b><b style="color:#07df07">⠀</b><b style="color:#07df07">⠈</b><b style="color:#07df07">⠛</b><b style="color:#07df07">⠹</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⠷</b><b style="color:#07df07">⣄</b><b style="color:#07df07">⠀</b><b style="color:#07df07">⠀</b><b style="color:#07df07">⠀</b><b style="color:#07df07">⠀</b><b style="color:#07df07">⠉</b><b style="color:#07df07">⠉</b><b style="color:#07df07">⠉</b><b style="color:#07df07">⣹</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⣿</b>
+<b style="color:#07df07">⣿</b><b style="color:#07df07">⠀</b><b style="color:#07df07">⠀</b><b style="color:#07df07">⢀</b><b style="color:#07df07">⣾</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⣷</b><b style="color:#07df07">⣤</b><b style="color:#07df07">⣀</b><b style="color:#07df07">⠀</b><b style="color:#07df07">⠀</b><b style="color:#07df07">⠀</b><b style="color:#07df07">⠀</b><b style="color:#07df07">⠀</b><b style="color:#07df07">⠀</b><b style="color:#07df07">⠀</b><b style="color:#07df07">⢀</b><b style="color:#07df07">⣴</b><b style="color:#07df07">⣶</b><b style="color:#07df07">⣶</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⣿</b>
+<b style="color:#07df07">⣿</b><b style="color:#07df07">⠀</b><b style="color:#07df07">⢀</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⣷</b><b style="color:#07df07">⣶</b><b style="color:#07df07">⣶</b><b style="color:#07df07">⣶</b><b style="color:#07df07">⣶</b><b style="color:#07df07">⣆</b><b style="color:#07df07">⡀</b><b style="color:#07df07">⠀</b><b style="color:#07df07">⠈</b><b style="color:#07df07">⠻</b><b style="color:#07df07">⠿</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⣿</b>
+<b style="color:#07df07">⣿</b><b style="color:#07df07">⣤</b><b style="color:#07df07">⣼</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⣶</b><b style="color:#07df07">⣶</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⣿</b><b style="color:#07df07">⣿</b>
+      </pre>
+      <script>
+         document.addEventListener('DOMContentLoaded', function () {
+            const chars = document.querySelectorAll('#tiresult b');
+
+            // Handle responsive animation scaling
+            function adjustAnimation() {
+               const viewportWidth = window.innerWidth;
+               let scaleFactor = 1;
+
+               if (viewportWidth <= 480) {
+                  scaleFactor = 0.5;
+               } else if (viewportWidth <= 768) {
+                  scaleFactor = 0.7;
+               } else if (viewportWidth <= 1024) {
+                  scaleFactor = 0.85;
+               }
+
+               function getRandomColor() {
+                  return '#' + Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0');
+               }
+
+               let randomColors = Array.from({ length: 10 }, getRandomColor);
+               setInterval(() => {
+                  randomColors = Array.from({ length: 10 }, getRandomColor);
+                   chars.forEach((char, index) => {
+                  const colorIndex = Math.floor(Math.random() * randomColors.length);
+                  char.style.color = randomColors[colorIndex];
+               });
+               }, 2000);
+              
+               console.log(randomColors);
+               
+               chars.forEach((char, index) => {
+                  const row = Math.floor(index / 130);
+                  const col = index % 130;
+                  const delay = (col * 0.015 + row * 0.06) % 1.5;
+
+                  char.style.animationDelay = delay + 's';
+                  const durationVariation = 0.9 + Math.random() * 0.2; // 0.9-1.1
+                  char.style.animationDuration = (1.5 * durationVariation) + 's';
+
+                  // Scale transform values based on viewport
+                  const style = document.createElement('style');
+                  style.innerHTML = `
+                     @keyframes wave {
+                        0% { transform: translateY(0) rotate(0deg); }
+                        20% { transform: translateY(${-1 * scaleFactor}px) rotate(${1.5 * scaleFactor}deg) translateX(${0.8 * scaleFactor}px); }
+                        40% { transform: translateY(${-0.5 * scaleFactor}px) rotate(${0.5 * scaleFactor}deg) translateX(${0.4 * scaleFactor}px); }
+                        60% { transform: translateY(0) rotate(0deg); }
+                        80% { transform: translateY(${0.8 * scaleFactor}px) rotate(${-1.5 * scaleFactor}deg) translateX(${-0.8 * scaleFactor}px); }
+                        100% { transform: translateY(0) rotate(0deg); }
+                     }
+                     
+                  `;
+                  document.head.appendChild(style);
+               });
+            }
+
+            // Initial setup
+            adjustAnimation();
+
+            // Re-adjust on window resize
+            window.addEventListener('resize', adjustAnimation);
+         });
+      </script>
+</body>
+
+</html>
